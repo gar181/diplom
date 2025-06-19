@@ -1,0 +1,54 @@
+﻿    <Window x:Class="DiplomProject.MainDoctorWindows.ManagmentEmployeeWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:DiplomProject.MainDoctorWindows"
+            mc:Ignorable="d"
+            Icon="/Images/logo.ico"
+            Title="Главный врач - управление сотрудниками" Height="450" Width="800">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Назад" Width="175" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" FontSize="22" Grid.Column="3" Click="Button_Click"/>
+            <TextBlock Text="Поиск по ФИО сотрудников:" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" FontSize="22" Margin="10"/>
+            <TextBox Name="text_txb" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Height="40" TextChanged="TextBox_TextChanged" Margin="10,0,100,0"/>
+            <ListBox Name="employee_lb" Grid.Row="2" Grid.ColumnSpan="4" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10">
+                        <TextBlock>
+                            <Run Text="Сотрудник: " />
+                            <Run Text="{Binding patronymic}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding first_name}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding last_name}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Специализация: " />
+                            <Run Text="{Binding specispecialization}" />
+                        </TextBlock>
+                        <TextBlock >
+                            <Run Text="Телефон: " />
+                            <Run Text="{Binding phone}" />
+                        </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Добавить" Width="175" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,20,0" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="Button_Click_1"/>
+            <Button Content="Изменить" Width="175" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,10,0,0" FontSize="22" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Click="Button_Click_2"/>
+        </Grid>
+    </Window>
+

@@ -1,0 +1,66 @@
+﻿<Window x:Class="DiplomProject.RegistrationWindows.FirstCheckWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomProject.RegistrationWindows"
+        mc:Ignorable="d"
+        Title="Регистратура - Первчииный приём" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Назад" Width="175" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" FontSize="22" Grid.Column="3" Click="Button_Click"/>
+        <TextBlock Text="Специализация" Grid.Column="0" Grid.Row="1" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <ComboBox Name="specialization_cmb" Grid.Row="1" Grid.Column="1" Margin="10,20" Width="175" Height="30" VerticalAlignment="Center" SelectedIndex="1" SelectionChanged="specialization_cmb_SelectionChanged"/>
+        <TextBlock Text="Пациент" Grid.Column="2" Grid.Row="1" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="100,20,10,20"/>
+        <ComboBox Name="patients_cmb" Grid.Row="1" Grid.Column="3" Margin="10,20" Width="175" Height="30" SelectedIndex="1" VerticalAlignment="Center" SelectionChanged="patients_cmb_SelectionChanged"/>
+        <ListBox Name="firstCheckListBox" Grid.Row="2" Grid.ColumnSpan="4" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock>
+                    <Run Text="Сотрудник: " />
+                    <Run Text="{Binding employeeFullName}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Пациент: " />
+                    <Run Text="{Binding patientFullNmae}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Дата: " />
+                    <Run Text="{Binding date}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Помещение: " />
+                    <Run Text="{Binding roomId}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Давление: " />
+                    <Run Text="{Binding pressure}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Пульс: " />
+                    <Run Text="{Binding pulse}" />
+                        </TextBlock>
+                        <TextBlock>
+                    <Run Text="Комментарий: " />
+                    <Run Text="{Binding comments}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Добавить" Width="175" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,20,0" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="Button_Click_1"/>
+        <Button Content="Изменить" Width="175" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,10,0,0" FontSize="22" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Click="Button_Click_2"/>
+    </Grid>
+</Window>
