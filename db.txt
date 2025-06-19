@@ -1,4 +1,4 @@
-create table positions(
+CRATE table positions(
 	id serial primary key,
 	name varchar(100)
 );
